@@ -1,0 +1,32 @@
+
+<html lang="en" ng-app="video">
+<head>
+	<title>Video Page</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="bootstrap.min.css" rel="stylesheet">
+<body ng-controller="MainCtrl">
+<div class="container">
+	<h2>Play The Videos</h2></br>
+		<div class="row" style="background-color: black">
+				<video class ="col-xs-offset-2 col-md-8" controls ng-src="{{mainUrl}}"  type="video/mp4">
+	<!--<track kind="subtitles" src="Iron Man 2008.720p.BrRip.x264.YIFY.srt" label="English Sub" srclang="en" default >
+	</track> -->	
+				</video>
+
+		</div>
+			<div class="row" >
+			<h3>More Videos</h3>
+				<div class="col-xs-4" ng-repeat="v in vod_latest">
+					<video style="height: 200px;width: 300px" ng-src="{{v.video_url}}" poster="{{v.thumbnail_url}}" ng-click="setVideo(v)" controls></video></br>
+					<b>{{v.video_title}}</b></br>
+					<p class="text-justify">{{v.description}}</p><br> 
+					{{v.upload_time}}</br>
+					{{v.duration}}
+				</div>
+			</div>
+</div>
+	<script type="text/javascript" src="angular.js"></script>
+	<script type="text/javascript" src="script.js"></script>
+</body>
+
+</html>
